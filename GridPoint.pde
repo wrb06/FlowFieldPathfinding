@@ -1,0 +1,4 @@
+class GridPoint{
+  void Gridpoint(){
+  }
+}
