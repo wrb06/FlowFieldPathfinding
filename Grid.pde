@@ -1,12 +1,21 @@
 class Grid{
   public GridPoint[][] _grid;
+  private int[][] weightarray;
   
   private ArrayList<Integer> wall = new ArrayList<Integer>();
   
-  int xSize = 20;
-  int ySize = 15; 
+  int xSize = 25;
+  int ySize = 25; 
 
   public Grid(){
+    weightarray = new int[xSize][ySize];
+    for (int x = 0; x< xSize; x++){
+      for (int y = 0; y< ySize; y++){
+        weightarray[x][y] = (int)random(255);
+        
+      }
+    }
+      
     MakeBoard();
   }
   
@@ -15,7 +24,7 @@ class Grid{
     _grid = new GridPoint[xSize][ySize];
     for (int x = 0; x<xSize; x++){
       for (int y = 0; y<ySize; y++){
-        NewGridPoint(x, y, 1);
+        NewGridPoint(x, y, weightarray[x][y]);
       }
     }
     
