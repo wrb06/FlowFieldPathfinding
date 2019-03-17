@@ -8,6 +8,6 @@ class GridPoint{
      X = x;
      Y = y;
      Cost = c;
-     IFValue = 100000;
+     IFValue = Integer.MAX_VALUE;
    }
 }

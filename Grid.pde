@@ -4,14 +4,14 @@ class Grid{
   
   private ArrayList<Integer> wall = new ArrayList<Integer>();
   
-  int xSize = 25;
-  int ySize = 25; 
+  int xSize = XSize;
+  int ySize = YSize;
 
   public Grid(){
     weightarray = new int[xSize][ySize];
     for (int x = 0; x< xSize; x++){
       for (int y = 0; y< ySize; y++){
-        weightarray[x][y] = (int)random(255);
+        weightarray[x][y] = 1+(int)random(100);
         
       }
     }
@@ -29,13 +29,13 @@ class Grid{
     }
     
     for (int index : wall){
-       NewGridPoint(index%xSize, index/xSize, 255); 
+       NewGridPoint(index%xSize, index/xSize, Integer.MAX_VALUE); 
     }
   }
   
   public void Addwall(int x, int y){
     wall.add(y*xSize + x);
-    NewGridPoint(x, y, 255); 
+    NewGridPoint(x, y, Integer.MAX_VALUE); 
   }
   
   public void Removewall(int x, int y){
@@ -98,16 +98,16 @@ class Grid{
   private ArrayList<Integer> GetNeighbors(int x, int y){
     ArrayList<Integer> ret = new ArrayList<Integer>();
     
-    if (x-1 < xSize && x-1 >= 0 && GetCellCost(x-1, y) < 255){
+    if (x-1 < xSize && x-1 >= 0 && GetCellCost(x-1, y) < Integer.MAX_VALUE){
       ret.add(y*xSize + x -1);
     }
-    if (y-1 < ySize && y-1 >=0 && GetCellCost(x, y-1) < 255){
+    if (y-1 < ySize && y-1 >=0 && GetCellCost(x, y-1) < Integer.MAX_VALUE){
       ret.add((y-1)*xSize + x);
     }
-    if (x+1 < xSize && x+1 >= 0 && GetCellCost(x+1, y) < 255){
+    if (x+1 < xSize && x+1 >= 0 && GetCellCost(x+1, y) < Integer.MAX_VALUE){
       ret.add(y*xSize + x + 1);
     }
-        if (y+1 < ySize && y+1 >=0 && GetCellCost(x, y+1) < 255){
+        if (y+1 < ySize && y+1 >=0 && GetCellCost(x, y+1) < Integer.MAX_VALUE){
       ret.add((y+1)*xSize + x);
     }
     
@@ -119,7 +119,7 @@ class Grid{
     int h = 0;
     for (GridPoint[] r : _grid){
       for (GridPoint p : r){
-        if (!(p.IFValue == 100000)){
+        if (!(p.IFValue == Integer.MAX_VALUE)){
           h = max(h, p.IFValue);
         }
       }

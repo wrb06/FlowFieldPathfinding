@@ -136,11 +136,11 @@ class FlowObject{
 
     
     acc = new PVector(map(currentbestx, currentx-1, currentx+1, -1, 1), map(currentbesty, currenty-1, currenty+1, -1, 1));
-    acc.limit(1);
+    acc.limit(0.1);
     
     speed.add(acc);
-    speed.limit(10);
-    disp.add(speed.copy().limit(2));
+    speed.limit(2);
+    disp.add(speed);
     
   }
 }
