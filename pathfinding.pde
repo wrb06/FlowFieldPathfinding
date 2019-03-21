@@ -126,7 +126,7 @@ void draw(){
             fill(255, 0, 0);
           }
           else{
-            fill(grid.GetCellCost(x, y), 150, 150);
+            fill(255*grid.GetCellCost(x, y)/100, 255, 255);
           }
         }
       }
@@ -148,8 +148,13 @@ void draw(){
        
       // Draw the rectabgle
       rect(x*scale, y*scale, scale, scale); 
-            fill(0);
-      text(grid.GetIFValue(x, y), (x)*scale, y*scale+10);
+      fill(0);
+      if (editable){
+        text(grid.GetCellCost(x, y), x*scale, y*scale+10); 
+      }
+      else{
+        text(grid.GetIFValue(x, y), (x)*scale, y*scale+10);
+      }
     } 
   }
   

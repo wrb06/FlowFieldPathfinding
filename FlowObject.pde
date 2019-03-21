@@ -33,10 +33,10 @@ class FlowObject{
         // if its inside the board
         if (!(currentx+1 < 0 || currentx + 1 >= g.xSize || currenty + 0 < 0 || currenty + 0>= g.ySize)){
           //if its better than before
-          if (grid.GetIFValue(currentx + 1, currenty + 0) < bestweight){
+          if (g.GetIFValue(currentx + 1, currenty + 0) < bestweight){
              currentbestx = currentx + 1;
              currentbesty = currenty + 0;
-             bestweight = grid.GetIFValue(currentx + 1, currenty+0);
+             bestweight = g.GetIFValue(currentx + 1, currenty+0);
            }
         }
         
@@ -44,10 +44,10 @@ class FlowObject{
         // if its inside the board
         if (!(currentx-1 < 0 || currentx - 1 >= g.xSize || currenty - 0 < 0 || currenty - 0>= g.ySize)){
           //if its better than before
-          if (grid.GetIFValue(currentx - 1, currenty + 0) < bestweight){
+          if (g.GetIFValue(currentx - 1, currenty + 0) < bestweight){
              currentbestx = currentx - 1;
              currentbesty = currenty + 0;
-             bestweight = grid.GetIFValue(currentx - 1, currenty+0);
+             bestweight = g.GetIFValue(currentx - 1, currenty+0);
            }
         }
         
@@ -55,10 +55,10 @@ class FlowObject{
         // if its inside the board
         if (!(currentx+0 < 0 || currentx + 0 >= g.xSize || currenty + 1 < 0 || currenty +1>= g.ySize)){
           //if its better than before
-          if (grid.GetIFValue(currentx + 0, currenty + 1) < bestweight){
+          if (g.GetIFValue(currentx + 0, currenty + 1) < bestweight){
              currentbestx = currentx + 0;
              currentbesty = currenty + 1;
-             bestweight = grid.GetIFValue(currentx + 0, currenty+1);
+             bestweight = g.GetIFValue(currentx + 0, currenty+1);
            }
         }
         
@@ -66,23 +66,23 @@ class FlowObject{
         // if its inside the board
         if (!(currentx+0 < 0 || currentx + 0 >= g.xSize || currenty - 1 < 0 || currenty -1>= g.ySize)){
           //if its better than before
-          if (grid.GetIFValue(currentx + 0, currenty - 1) < bestweight){
+          if (g.GetIFValue(currentx + 0, currenty - 1) < bestweight){
              currentbestx = currentx + 0;
              currentbesty = currenty - 1;
-             bestweight = grid.GetIFValue(currentx + 0, currenty-1);
+             bestweight = g.GetIFValue(currentx + 0, currenty-1);
            }
         }
         
         // right up
         // if its inside the board
         if (!(currentx+1 < 0 || currentx + 1 >= g.xSize || currenty < 0 || currenty >= g.ySize) && !(currentx+0 < 0 || currentx + 0 >= g.xSize || currenty + 1 < 0 || currenty +1>= g.ySize)){
-          if (grid.GetIFValue(currentx + 1, currenty) < 10000 && grid.GetIFValue(currentx, currenty + 1) < 10000) {
+          if (g.GetIFValue(currentx + 1, currenty) < 10000 && g.GetIFValue(currentx, currenty + 1) < 10000) {
             if (!(currentx+1 < 0 || currentx + 1 >= g.xSize || currenty + 1 < 0 || currenty + 1>= g.ySize)){
               //if its better than before
-              if (grid.GetIFValue(currentx + 1, currenty + 1) < bestweight){
+              if (g.GetIFValue(currentx + 1, currenty + 1) < bestweight){
                  currentbestx = currentx + 1;
                  currentbesty = currenty + 1;
-                 bestweight = grid.GetIFValue(currentx + 1, currenty+1);
+                 bestweight = g.GetIFValue(currentx + 1, currenty+1);
                }
             }
           }
@@ -90,13 +90,13 @@ class FlowObject{
         // left up
         // if its inside the board
         if (!(currentx-1 < 0 || currentx - 1 >= g.xSize || currenty < 0 || currenty >= g.ySize) && !(currentx+0 < 0 || currentx + 0 >= g.xSize || currenty + 1 < 0 || currenty +1>= g.ySize)){
-          if (grid.GetIFValue(currentx - 1, currenty) < 10000 && grid.GetIFValue(currentx, currenty + 1) < 10000) {
+          if (g.GetIFValue(currentx - 1, currenty) < 10000 && g.GetIFValue(currentx, currenty + 1) < 10000) {
             if (!(currentx-1 < 0 || currentx - 1 >= g.xSize || currenty + 1 < 0 || currenty + 1>= g.ySize)){
               //if its better than before
-              if (grid.GetIFValue(currentx - 1, currenty + 1) < bestweight){
+              if (g.GetIFValue(currentx - 1, currenty + 1) < bestweight){
                  currentbestx = currentx - 1;
                  currentbesty = currenty + 1;
-                 bestweight = grid.GetIFValue(currentx - 1, currenty+1);
+                 bestweight = g.GetIFValue(currentx - 1, currenty+1);
                }
             }
           }
@@ -104,13 +104,13 @@ class FlowObject{
                 // right down
         // if its inside the board
         if (!(currentx+1 < 0 || currentx + 1 >= g.xSize || currenty < 0 || currenty >= g.ySize) && !(currentx+0 < 0 || currentx + 0 >= g.xSize || currenty - 1 < 0 || currenty -1>= g.ySize)){
-          if (grid.GetIFValue(currentx + 1, currenty) < 10000 && grid.GetIFValue(currentx, currenty - 1) < 10000) {
+          if (g.GetIFValue(currentx + 1, currenty) < 10000 && g.GetIFValue(currentx, currenty - 1) < 10000) {
             if (!(currentx+1 < 0 || currentx + 1 >= g.xSize || currenty - 1 < 0 || currenty - 1>= g.ySize)){
               //if its better than before
-              if (grid.GetIFValue(currentx + 1, currenty - 1) < bestweight){
+              if (g.GetIFValue(currentx + 1, currenty - 1) < bestweight){
                  currentbestx = currentx + 1;
                  currentbesty = currenty - 1;
-                 bestweight = grid.GetIFValue(currentx + 1, currenty-1);
+                 bestweight = g.GetIFValue(currentx + 1, currenty-1);
                }
             }
           }
@@ -118,13 +118,13 @@ class FlowObject{
         // left down
         // if its inside the board
         if (!(currentx-1 < 0 || currentx - 1 >= g.xSize || currenty < 0 || currenty >= g.ySize) && !(currentx+0 < 0 || currentx + 0 >= g.xSize || currenty - 1 < 0 || currenty -1>= g.ySize)){
-          if (grid.GetIFValue(currentx - 1, currenty) < 10000 && grid.GetIFValue(currentx, currenty - 1) < 10000) {
+          if (g.GetIFValue(currentx - 1, currenty) < 10000 && g.GetIFValue(currentx, currenty - 1) < 10000) {
             if (!(currentx-1 < 0 || currentx - 1 >= g.xSize || currenty - 1 < 0 || currenty - 1>= g.ySize)){
               //if its better than before
-              if (grid.GetIFValue(currentx - 1, currenty - 1) < bestweight){
+              if (g.GetIFValue(currentx - 1, currenty - 1) < bestweight){
                  currentbestx = currentx - 1;
                  currentbesty = currenty - 1;
-                 bestweight = grid.GetIFValue(currentx - 1, currenty-1);
+                 bestweight = g.GetIFValue(currentx - 1, currenty-1);
                }
             }
           }
@@ -140,6 +140,15 @@ class FlowObject{
     
     speed.add(acc);
     speed.limit(2);
+    
+    int newx = (int)(disp.x + speed.x);
+    int newy = (int)(disp.y + speed.y);
+    
+    if (newx > 0 && newx < g.xSize*scale && newy > 0 && newy < g.ySize*scale){
+      if (g.GetIFValue(newx/scale, newy/scale) == Integer.MAX_VALUE){
+        speed = new PVector();
+      }
+    }
     disp.add(speed);
     
   }
