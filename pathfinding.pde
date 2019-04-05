@@ -6,9 +6,9 @@ ArrayList<FlowObject> objects = new ArrayList<FlowObject>();
 int goalx;
 int goaly;
 
-int XSize = 50;
-int YSize = 50;
-int scale = 20;
+int XSize = 40;
+int YSize = 40;
+int scale = 25;
 
 float rot = 0;
 float yrot = -PI/5;

@@ -10,11 +10,9 @@ class Grid{
 
   public Grid(){
     weightarray = new int[xSize][ySize];
-    float n = 0;
     for (int x = 0; x< xSize; x++){
       for (int y = 0; y< ySize; y++){
-        n = noise(n);
-        weightarray[x][y] = 1+(int)random(100);
+        weightarray[x][y] = int(1+100*noise(x/5.0, y/5.0)*noise(x/5.0, y/5.0));
         
       }
     }
