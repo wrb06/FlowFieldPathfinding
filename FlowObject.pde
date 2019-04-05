@@ -1,6 +1,7 @@
 class FlowObject{
   int X;
   int Y;
+  float h = -10;
   PVector disp;
   PVector speed;
   PVector acc;
@@ -16,10 +17,9 @@ class FlowObject{
   public void UpdatePosition(Grid g){
     X = (int)disp.x;
     Y = (int)disp.y;
-       
+           
     int currentx = X/scale;
     int currenty = Y/scale;
-    //print(currentx, currenty);
     
     // Object goes to the smallest weight
     int currentbestx = currentx;
@@ -144,10 +144,13 @@ class FlowObject{
     int newx = (int)(disp.x + speed.x);
     int newy = (int)(disp.y + speed.y);
     
-    if (newx > 0 && newx < g.xSize*scale && newy > 0 && newy < g.ySize*scale){
+    if (newx >= 0 && newx < g.xSize*scale && newy >= 0 && newy < g.ySize*scale){
       if (g.GetIFValue(newx/scale, newy/scale) == Integer.MAX_VALUE){
         speed = new PVector();
       }
+    }
+    else{
+      speed = new PVector();
     }
     disp.add(speed);
     
